@@ -551,6 +551,222 @@
       margin-left: 10px;
     }
     
+    /* Blog Section Styles */
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    
+    .blog-card {
+      background: var(--glass);
+      backdrop-filter: blur(10px);
+      border-radius: 15px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      transition: all 0.3s ease;
+    }
+    
+    .blog-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+      border-color: var(--primary);
+    }
+    
+    .blog-image {
+      height: 200px;
+      overflow: hidden;
+      position: relative;
+    }
+    
+    .blog-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    
+    .blog-card:hover .blog-image img {
+      transform: scale(1.1);
+    }
+    
+    .blog-category {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: var(--primary);
+      color: white;
+      padding: 0.3rem 0.8rem;
+      border-radius: 50px;
+      font-size: 0.8rem;
+      font-weight: 500;
+    }
+    
+    .blog-content {
+      padding: 1.5rem;
+    }
+    
+    .blog-date {
+      color: var(--primary);
+      font-size: 0.9rem;
+      margin-bottom: 0.5rem;
+      display: block;
+    }
+    
+    .blog-content h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      color: var(--primary-light);
+    }
+    
+    .blog-content p {
+      color: var(--text-secondary);
+      margin-bottom: 1.5rem;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    
+    .blog-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    .blog-tag {
+      background: rgba(99, 102, 241, 0.1);
+      color: var(--primary);
+      padding: 0.3rem 0.8rem;
+      border-radius: 50px;
+      font-size: 0.8rem;
+    }
+    
+    .blog-link {
+      display: inline-flex;
+      align-items: center;
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+    
+    .blog-link:hover {
+      color: var(--primary-light);
+    }
+    
+    .blog-link i {
+      margin-left: 5px;
+      transition: transform 0.3s ease;
+    }
+    
+    .blog-link:hover i {
+      transform: translateX(5px);
+    }
+    
+    .view-all-container {
+      text-align: center;
+      margin-top: 3rem;
+    }
+    
+    /* Article Viewer Modal */
+    .article-modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+    }
+    
+    .article-modal.active {
+      opacity: 1;
+      visibility: visible;
+    }
+    
+    .article-content {
+      background: var(--bg-light);
+      width: 90%;
+      max-width: 800px;
+      max-height: 90vh;
+      border-radius: 15px;
+      overflow-y: auto;
+      padding: 2rem;
+      position: relative;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    }
+    
+    .close-article {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: var(--primary);
+      color: white;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    
+    .close-article:hover {
+      background: var(--primary-dark);
+      transform: rotate(90deg);
+    }
+    
+    .article-header {
+      margin-bottom: 2rem;
+    }
+    
+    .article-header h2 {
+      font-size: 2rem;
+      color: var(--primary-light);
+      margin-bottom: 1rem;
+    }
+    
+    .article-meta {
+      display: flex;
+      gap: 1rem;
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+    }
+    
+    .article-body {
+      line-height: 1.8;
+    }
+    
+    .article-body p {
+      margin-bottom: 1.5rem;
+    }
+    
+    .article-body h3 {
+      color: var(--primary);
+      margin: 2rem 0 1rem;
+    }
+    
+    .article-body ul, .article-body ol {
+      margin-left: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    .article-body li {
+      margin-bottom: 0.5rem;
+    }
+    
     /* Contact Section - Mobile Optimized */
     .contact-container {
       display: flex;
@@ -797,6 +1013,14 @@
       .footer-links {
         grid-template-columns: 1fr;
       }
+      
+      .article-content {
+        padding: 1.5rem;
+      }
+      
+      .article-header h2 {
+        font-size: 1.5rem;
+      }
     }
     
     @media (max-width: 576px) {
@@ -832,6 +1056,10 @@
         width: 35px;
         height: 35px;
         font-size: 0.9rem;
+      }
+      
+      .blog-grid {
+        grid-template-columns: 1fr;
       }
     }
 
@@ -874,6 +1102,7 @@
       <a href="#about">About</a>
       <a href="#skills">Skills</a>
       <a href="#projects">Projects</a>
+      <a href="#blog">Blog</a>
       <a href="#contact">Contact</a>
     </div>
     <button class="mobile-menu-btn" id="mobileMenuBtn">
@@ -894,6 +1123,7 @@
       <a href="#about" class="mobile-nav-link">About</a>
       <a href="#skills" class="mobile-nav-link">Skills</a>
       <a href="#projects" class="mobile-nav-link">Projects</a>
+      <a href="#blog" class="mobile-nav-link">Blog</a>
       <a href="#contact" class="mobile-nav-link">Contact</a>
     </div>
   </div>
@@ -920,16 +1150,16 @@
         <div class="btn-group">
           <a href="#contact" class="btn"><i class="fas fa-paper-plane"></i> Contact Me</a>
           <!-- Google Drive Link के साथ -->
-<a href="https://drive.google.com/file/d/10tK5ggrHELR_D6sd23G1kVF8J1wxIgOq/view?usp=sharing" 
-   download="Your-Name-Resume.pdf" 
-   class="btn btn-outline"
-   target="_blank">
-  <i class="fas fa-download"></i> Download CV
-</a>
+          <a href="https://drive.google.com/file/d/10tK5ggrHELR_D6sd23G1kVF8J1wxIgOq/view?usp=sharing" 
+             download="Your-Name-Resume.pdf" 
+             class="btn btn-outline"
+             target="_blank">
+            <i class="fas fa-download"></i> Download CV
+          </a>
         </div>
       </div>
       <div class="profile-container">
-        <img src="assets/images/profile.jpg" alt="Bibek" class="profile-pic">
+        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80" alt="Bibek" class="profile-pic">
       </div>
     </div>
   </header>
@@ -989,18 +1219,6 @@
         <p>React JS</p>
       </div>
       <div class="skill-item">
-        <div class="skill-icon"><i class="fab fa-python"></i></div>
-        <p>Python</p>
-      </div>
-      <div class="skill-item">
-        <div class="skill-icon"><i class="fas fa-database"></i></div>
-        <p>MySQL</p>
-      </div>
-      <div class="skill-item">
-        <div class="skill-icon"><i class="fas fa-database"></i></div>
-        <p>MongoDB</p>
-      </div>
-      <div class="skill-item">
         <div class="skill-icon"><i class="fas fa-search"></i></div>
         <p>SEO</p>
       </div>
@@ -1022,7 +1240,7 @@
       <!-- Project 1 -->
       <div class="project-card">
         <div class="project-image">
-          <img src="assets/images/weather-app.jpg" alt="Weather Forecasting App">
+          <img src="https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1065&q=80" alt="Weather Forecasting App">
         </div>
         <div class="project-content">
           <h3>Weather Forecasting Application</h3>
@@ -1043,7 +1261,7 @@
       <!-- Project 2 -->
       <div class="project-card">
         <div class="project-image">
-          <img src="assets/images/govt-job.jpg" alt="Government Job Portal">
+          <img src="https://images.unsplash.com/photo-1522542550221-31fd19575a2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Government Job Portal">
         </div>
         <div class="project-content">
           <h3>Government Job Portal</h3>
@@ -1064,7 +1282,7 @@
       <!-- Project 3 -->
       <div class="project-card">
         <div class="project-image">
-          <img src="assets/images/project-in-progress.jpg" alt="Project in Progress">
+          <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Project in Progress">
         </div>
         <div class="project-content">
           <h3>E-Commerce Platform <span class="progress-badge">In Progress</span></h3>
@@ -1083,6 +1301,91 @@
       </div>
     </div>
   </section>
+
+  <!-- New Blog Section -->
+  <section id="blog">
+    <h2 class="section-title">My Blog & Articles</h2>
+    <div class="blog-grid">
+      <!-- Blog Post 1 -->
+      <div class="blog-card">
+        <div class="blog-image">
+          <img src="https://images.unsplash.com/photo-1501504905252-473c47e087f8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="SEO Tips for Beginners">
+          <span class="blog-category">SEO</span>
+        </div>
+        <div class="blog-content">
+          <span class="blog-date"><i class="far fa-calendar"></i> March 15, 2025</span>
+          <h3>10 Essential SEO Tips Every Beginner Should Know</h3>
+          <p>Search Engine Optimization can seem complex, but these fundamental tips will help you improve your website's visibility and drive organic traffic from day one.</p>
+          <div class="blog-tags">
+            <span class="blog-tag">SEO</span>
+            <span class="blog-tag">Digital Marketing</span>
+            <span class="blog-tag">Beginners</span>
+          </div>
+          <a class="blog-link read-more" data-article="1">Read More <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+      
+      <!-- Blog Post 2 -->
+      <div class="blog-card">
+        <div class="blog-image">
+          <img src="https://images.unsplash.com/photo-1633356122544-f134324a6cee?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="React Performance">
+          <span class="blog-category">Web Development</span>
+        </div>
+        <div class="blog-content">
+          <span class="blog-date"><i class="far fa-calendar"></i> February 28, 2025</span>
+          <h3>Optimizing React Applications for Maximum Performance</h3>
+          <p>Learn practical techniques to make your React applications faster and more efficient, from code splitting to memoization and beyond.</p>
+          <div class="blog-tags">
+            <span class="blog-tag">React</span>
+            <span class="blog-tag">JavaScript</span>
+            <span class="blog-tag">Performance</span>
+          </div>
+          <a class="blog-link read-more" data-article="2">Read More <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+      
+      <!-- Blog Post 3 -->
+      <div class="blog-card">
+        <div class="blog-image">
+          <img src="https://images.unsplash.com/photo-1432888622747-4eb9a8f5a07a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1174&q=80" alt="Content Strategy">
+          <span class="blog-category">Content Writing</span>
+        </div>
+        <div class="blog-content">
+          <span class="blog-date"><i class="far fa-calendar"></i> February 10, 2025</span>
+          <h3>Building a Content Strategy That Converts Readers to Customers</h3>
+          <p>Discover how to create content that not only engages your audience but also drives them through your conversion funnel effectively.</p>
+          <div class="blog-tags">
+            <span class="blog-tag">Content Strategy</span>
+            <span class="blog-tag">Marketing</span>
+            <span class="blog-tag">Conversion</span>
+          </div>
+          <a class="blog-link read-more" data-article="3">Read More <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+    </div>
+    
+    <div class="view-all-container">
+      <a href="#" class="btn btn-outline"><i class="fas fa-book-open"></i> View All Articles</a>
+    </div>
+  </section>
+
+  <!-- Article Viewer Modal -->
+  <div class="article-modal" id="articleModal">
+    <div class="article-content">
+      <div class="close-article" id="closeArticle">
+        <i class="fas fa-times"></i>
+      </div>
+      <div class="article-header">
+        <h2 id="article-title"></h2>
+        <div class="article-meta">
+          <span id="article-date"></span>
+          <span id="article-category"></span>
+        </div>
+        <div class="blog-tags" id="article-tags"></div>
+      </div>
+      <div class="article-body" id="article-body"></div>
+    </div>
+  </div>
 
   <!-- Contact Section -->
   <section id="contact">
@@ -1178,6 +1481,7 @@
           <a href="#about">About</a>
           <a href="#skills">Skills</a>
           <a href="#projects">Projects</a>
+          <a href="#blog">Blog</a>
           <a href="#contact">Contact</a>
         </div>
         
@@ -1187,6 +1491,14 @@
           <a href="#">Content Writing</a>
           <a href="#">Digital Marketing</a>
           <a href="#">Social Media</a>
+        </div>
+        
+        <div class="footer-column">
+          <h4>Blog Categories</h4>
+          <a href="#">Web Development</a>
+          <a href="#">SEO</a>
+          <a href="#">Content Writing</a>
+          <a href="#">Digital Marketing</a>
         </div>
       </div>
     </div>
@@ -1338,6 +1650,252 @@
           });
         }
       });
+    });
+
+    // Article content data
+    const articles = {
+      1: {
+        title: "10 Essential SEO Tips Every Beginner Should Know",
+        date: "March 15, 2025",
+        category: "SEO",
+        tags: ['SEO', 'Digital Marketing', 'Beginners'],
+        content: `
+          <p>Search Engine Optimization (SEO) is crucial for any website that wants to be found online. While it can seem complex at first, mastering the basics will set you on the path to success. Here are 10 essential SEO tips that every beginner should know:</p>
+          
+          <h3>1. Keyword Research is Fundamental</h3>
+          <p>Before creating content, identify what terms your target audience is searching for. Use tools like Google Keyword Planner, SEMrush, or Ahrefs to find relevant keywords with good search volume and reasonable competition.</p>
+          
+          <h3>2. Optimize Your Title Tags</h3>
+          <p>Your title tag is one of the most important SEO elements. Make sure it's under 60 characters, includes your primary keyword, and accurately describes the page content.</p>
+          
+          <h3>3. Create High-Quality Content</h3>
+          <p>Google prioritizes content that provides value to users. Focus on creating comprehensive, well-researched content that answers searchers' questions better than competing pages.</p>
+          
+          <h3>4. Improve Page Loading Speed</h3>
+          <p>Site speed is a ranking factor and affects user experience. Compress images, minimize code, and leverage browser caching to improve loading times.</p>
+          
+          <h3>5. Make Your Site Mobile-Friendly</h3>
+          <p>With mobile-first indexing, your site must perform well on mobile devices. Use responsive design and test your site on various screen sizes.</p>
+          
+          <h3>6. Build Quality Backlinks</h3>
+          <p>Links from reputable websites signal to search engines that your content is valuable. Focus on earning links through great content rather than buying them.</p>
+          
+          <h3>7. Use Header Tags Properly</h3>
+          <p>Organize your content with header tags (H1, H2, H3, etc.). Include keywords where appropriate, but maintain a natural flow for readers.</p>
+          
+          <h3>8. Optimize Meta Descriptions</h3>
+          <p>While not a direct ranking factor, compelling meta descriptions can improve click-through rates from search results. Keep them under 155 characters and include a call-to-action.</p>
+          
+          <h3>9. Use Alt Text for Images</h3>
+          <p>Describe images with alt text that includes relevant keywords. This improves accessibility and helps images rank in search results.</p>
+          
+          <h3>10. Monitor Your Performance</h3>
+          <p>Use Google Analytics and Search Console to track your SEO efforts. Monitor rankings, traffic, and user behavior to identify what's working and where to improve.</p>
+          
+          <p>SEO is an ongoing process, not a one-time task. By consistently applying these fundamentals and staying updated with industry changes, you'll build a strong foundation for organic search success.</p>
+        `
+      },
+      2: {
+        title: "Optimizing React Applications for Maximum Performance",
+        date: "February 28, 2025",
+        category: "Web Development",
+        tags: ['React', 'JavaScript', 'Performance'],
+        content: `
+          <p>React is known for its performance benefits, but as applications grow, they can become sluggish without proper optimization. Here's how to keep your React apps running smoothly:</p>
+          
+          <h3>1. Code Splitting with React.lazy()</h3>
+          <p>Instead of loading your entire app at once, split it into smaller chunks that load on demand. Use React.lazy() to lazy-load components:</p>
+          
+          <pre><code>const LazyComponent = React.lazy(() => import('./LazyComponent'));</code></pre>
+          
+          <p>Combine this with Suspense to show a fallback while the component loads:</p>
+          
+          <pre><code>&lt;React.Suspense fallback={&lt;div&gt;Loading...&lt;/div&gt;}>
+  &lt;LazyComponent /&gt;
+&lt;/React.Suspense&gt;</code></pre>
+          
+          <h3>2. Memoize with React.memo()</h3>
+          <p>Prevent unnecessary re-renders of functional components with React.memo(). It will only re-render if props change:</p>
+          
+          <pre><code>const MyComponent = React.memo(function MyComponent(props) {
+  /* render using props */
+});</code></pre>
+          
+          <h3>3. Use useCallback and useMemo Hooks</h3>
+          <p>These hooks help prevent unnecessary re-renders and computations:</p>
+          
+          <pre><code>const memoizedCallback = useCallback(() => {
+  doSomething(a, b);
+}, [a, b]);
+
+const memoizedValue = useMemo(() => computeExpensiveValue(a, b), [a, b]);</code></pre>
+          
+          <h3>4. Virtualize Long Lists</h3>
+          <p>When rendering long lists, use windowing techniques to only render items visible in the viewport. Libraries like react-window make this easy:</p>
+          
+          <pre><code>import { FixedSizeList as List } from 'react-window';
+
+const Row = ({ index, style }) => (
+  &lt;div style={style}&gt;Row {index}&lt;/div&gt;
+);
+
+const Example = () => (
+  &lt;List height={150} itemCount={1000} itemSize={35} width={300}&gt;
+    {Row}
+  &lt;/List&gt;
+);</code></pre>
+          
+          <h3>5. Optimize Bundle Size</h3>
+          <p>Reduce your bundle size by:</p>
+          <ul>
+            <li>Analyzing bundle with webpack-bundle-analyzer</li>
+            <li>Removing unused code with Tree Shaking</li>
+            <li>Using smaller alternative libraries when possible</li>
+            <li>Compressing assets</li>
+          </ul>
+          
+          <h3>6. Avoid Inline Function Definitions in Render</h3>
+          <p>Inline functions create new references on each render, which can break optimizations like React.memo and cause unnecessary re-renders:</p>
+          
+          <pre><code>// Avoid this:
+&lt;button onClick={() => handleClick(id)}&gt;Click&lt;/button&gt;
+
+// Do this instead:
+const handleClick = useCallback((id) => {
+  // handle click
+}, []);
+
+&lt;button onClick={() => handleClick(id)}&gt;Click&lt;/button&gt;</code></pre>
+          
+          <p>By implementing these strategies, you can significantly improve the performance of your React applications, leading to better user experiences and higher engagement.</p>
+        `
+      },
+      3: {
+        title: "Building a Content Strategy That Converts Readers to Customers",
+        date: "February 10, 2025",
+        category: "Content Writing",
+        tags: ['Content Strategy', 'Marketing', 'Conversion'],
+        content: `
+          <p>A successful content strategy does more than just attract visitors—it guides them through a journey that ultimately converts them into customers. Here's how to build a content strategy that drives conversions:</p>
+          
+          <h3>1. Understand Your Audience's Journey</h3>
+          <p>Map out the stages your potential customers go through before making a purchase:</p>
+          <ul>
+            <li><strong>Awareness Stage:</strong> They realize they have a problem</li>
+            <li><strong>Consideration Stage:</strong> They research solutions</li>
+            <li><strong>Decision Stage:</strong> They choose a solution provider</li>
+          </ul>
+          <p>Create content tailored to each stage of this journey.</p>
+          
+          <h3>2. Develop Buyer Personas</h3>
+          <p>Create detailed profiles of your ideal customers. Include demographics, goals, challenges, and content preferences. This helps you create content that resonates with your target audience.</p>
+          
+          <h3>3. Set Clear Goals and KPIs</h3>
+          <p>Define what success looks like for your content. Common goals include:</p>
+          <ul>
+            <li>Increasing lead generation</li>
+            <li>Boosting product signups</li>
+            <li>Growing email subscribers</li>
+            <li>Improving customer retention</li>
+          </ul>
+          <p>Track relevant KPIs like conversion rates, time on page, and bounce rates.</p>
+          
+          <h3>4. Create a Content Mix</h3>
+          <p>Diversify your content types to engage different audience segments:</p>
+          <ul>
+            <li><strong>Top of Funnel:</strong> Blog posts, infographics, social media content</li>
+            <li><strong>Middle of Funnel:</strong> Webinars, case studies, email courses</li>
+            <li><strong>Bottom of Funnel:</strong> Product comparisons, free trials, demos</li>
+          </ul>
+          
+          <h3>5. Optimize for Conversion</h3>
+          <p>Every piece of content should include a clear call-to-action (CTA) that moves readers to the next step in their journey. Examples include:</p>
+          <ul>
+            <li>Subscribe to our newsletter</li>
+            <li>Download our free guide</li>
+            <li>Request a demo</li>
+            <li>Start a free trial</li>
+          </ul>
+          
+          <h3>6. Repurpose Successful Content</h3>
+          <p>Maximize the value of your best-performing content by repurposing it into different formats. Turn a blog post into:</p>
+          <ul>
+            <li>A video tutorial</li>
+            <li>An infographic</li>
+            <li>A podcast episode</li>
+            <li>A social media carousel</li>
+            <li>An email series</li>
+          </ul>
+          
+          <h3>7. Measure and Iterate</h3>
+          <p>Regularly analyze your content performance to understand what works and what doesn't. Use tools like Google Analytics to track:</p>
+          <ul>
+            <li>Traffic sources</li>
+            <li>Engagement metrics</li>
+            <li>Conversion rates</li>
+            <li>ROI of content efforts</li>
+          </ul>
+          <p>Adjust your strategy based on these insights.</p>
+          
+          <p>Remember, a successful content strategy is not about creating more content—it's about creating the right content that addresses your audience's needs and guides them toward becoming customers.</p>
+        `
+      }
+    };
+
+    // Article viewer functionality
+    const articleModal = document.getElementById('articleModal');
+    const closeArticleBtn = document.getElementById('closeArticle');
+    const articleTitle = document.getElementById('article-title');
+    const articleDate = document.getElementById('article-date');
+    const articleCategory = document.getElementById('article-category');
+    const articleTags = document.getElementById('article-tags');
+    const articleBody = document.getElementById('article-body');
+    const readMoreLinks = document.querySelectorAll('.read-more');
+
+    // Open article modal
+    readMoreLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        const articleId = link.getAttribute('data-article');
+        const article = articles[articleId];
+        
+        if (article) {
+          articleTitle.textContent = article.title;
+          articleDate.textContent = article.date;
+          articleCategory.textContent = article.category;
+          
+          // Clear previous tags
+          articleTags.innerHTML = '';
+          
+          // Add tags
+          article.tags.forEach(tag => {
+            const tagElement = document.createElement('span');
+            tagElement.classList.add('blog-tag');
+            tagElement.textContent = tag;
+            articleTags.appendChild(tagElement);
+          });
+          
+          // Set article content
+          articleBody.innerHTML = article.content;
+          
+          // Show modal
+          articleModal.classList.add('active');
+          document.body.style.overflow = 'hidden';
+        }
+      });
+    });
+
+    // Close article modal
+    closeArticleBtn.addEventListener('click', () => {
+      articleModal.classList.remove('active');
+      document.body.style.overflow = '';
+    });
+
+    // Close modal when clicking outside
+    articleModal.addEventListener('click', (e) => {
+      if (e.target === articleModal) {
+        articleModal.classList.remove('active');
+        document.body.style.overflow = '';
+      }
     });
 
     // Adjust footer layout on resize
